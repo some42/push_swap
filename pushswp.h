@@ -29,11 +29,12 @@ void	push(t_list	**src, t_list	**dst);
 ** Helper Functions
 */
 
-int	parse(char **str);
+void	parse(char **str);
 void	savetolist(t_list **lst, int argc, char **argv);
 void	freestr(char **str);
-int		init(char **argv, int argc, t_list *a);
+void	init(char **argv, int argc,	t_list **lst);
 int		ifsimbols(char c, char a);
+void	reterror(char *error);
 
 /*
 ** Checker Functions
