@@ -1,7 +1,7 @@
 #define PUSHSWP_H
 #ifdef PUSHSWP_H
 
-# include "libft/libft.h"
+# include "../libft/libft.h"
 # include <stdlib.h>
 
 typedef struct	s_general

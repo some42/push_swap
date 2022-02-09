@@ -6,11 +6,11 @@
 /*   By: agaliste <agaliste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:11:25 by agaliste          #+#    #+#             */
-/*   Updated: 2021/10/21 19:21:32 by agaliste         ###   ########.fr       */
+/*   Updated: 2022/02/09 19:41:14 by agaliste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswp.h"
+#include "headers/pushswp.h""
 
 void printlist(void *lista){
 	printf("a: %s\n", (char *)lista);
