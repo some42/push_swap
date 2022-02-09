@@ -6,11 +6,11 @@
 /*   By: agaliste <agaliste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 03:15:47 by agaliste          #+#    #+#             */
-/*   Updated: 2021/09/22 13:49:50 by agaliste         ###   ########.fr       */
+/*   Updated: 2022/02/09 19:34:26 by agaliste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pushswp.h"
+#include "../../headers/pushswp.h"
 
 void	rotate(t_list	**lst, int size)
 {

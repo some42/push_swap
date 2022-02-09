@@ -6,11 +6,11 @@
 /*   By: agaliste <agaliste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 21:18:20 by agaliste          #+#    #+#             */
-/*   Updated: 2021/11/27 02:14:40 by agaliste         ###   ########.fr       */
+/*   Updated: 2022/02/09 19:34:52 by agaliste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pushswp.h"
+#include "../../headers/pushswp.h"
 
 void	parse(char **str)
 {

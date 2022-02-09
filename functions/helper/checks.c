@@ -6,11 +6,11 @@
 /*   By: agaliste <agaliste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 21:34:48 by agaliste          #+#    #+#             */
-/*   Updated: 2021/10/23 03:40:16 by agaliste         ###   ########.fr       */
+/*   Updated: 2022/02/09 19:34:48 by agaliste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../pushswp.h"
+#include "../../headers/pushswp.h"
 
 int check(t_list *a, int num)
 {
