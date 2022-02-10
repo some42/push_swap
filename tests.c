@@ -6,7 +6,7 @@
 /*   By: agaliste <agaliste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/22 14:11:25 by agaliste          #+#    #+#             */
-/*   Updated: 2022/02/09 19:41:14 by agaliste         ###   ########.fr       */
+/*   Updated: 2022/02/10 10:09:58 by agaliste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ void menu(char *argv, t_list *lst, t_list *lst2)
 	if(!strncmp(argv, "sa", 2))
 	{
 		printf("-----STACKS-----\n");
-		ft_lstiter(lst, printlist); printf("\n");
-		ft_lstiter(lst2, printlist2); swap(&lst);
+		ft_lstiter(lst, printlist);
+		printf("\n");
+		ft_lstiter(lst2, printlist2);
+		swap(&lst, "sa");
 		printf("\n-----SA-----\n"); 
 		ft_lstiter(lst, printlist);
 		printf("\n");
@@ -34,9 +36,10 @@ void menu(char *argv, t_list *lst, t_list *lst2)
 	if(!strncmp(argv, "sb", 2))
 	{
 		printf("-----STACKS-----\n");
-		ft_lstiter(lst, printlist); printf("\n");
+		ft_lstiter(lst, printlist);
+		printf("\n");
 		ft_lstiter(lst2, printlist2);
-		swap(&lst2);
+		swap(&lst2, "sb");
 		printf("\n-----SB-----\n");
 		ft_lstiter(lst, printlist);
 		printf("\n");
@@ -48,7 +51,7 @@ void menu(char *argv, t_list *lst, t_list *lst2)
 		ft_lstiter(lst, printlist);
 		printf("\n");
 		ft_lstiter(lst2, printlist2);
-		rotate(&lst, ft_lstsize(lst));
+		rotate(&lst, ft_lstsize(lst), "ra");
 		printf("\n-----RA-----\n");
 		ft_lstiter(lst, printlist);
 		printf("\n");
@@ -60,7 +63,7 @@ void menu(char *argv, t_list *lst, t_list *lst2)
 		ft_lstiter(lst, printlist);
 		printf("\n");
 		ft_lstiter(lst2, printlist2);
-		rotate(&lst2, ft_lstsize(lst2));
+		rotate(&lst2, ft_lstsize(lst2), "rb");
 		printf("\n-----RB-----\n");
 		ft_lstiter(lst, printlist);
 		printf("\n");
@@ -72,7 +75,7 @@ void menu(char *argv, t_list *lst, t_list *lst2)
 		ft_lstiter(lst, printlist);
 		printf("\n");
 		ft_lstiter(lst2, printlist2);
-		rotate(&lst, ft_lstsize(lst) - 2);
+		rotate(&lst, ft_lstsize(lst) - 2, "rra");
 		printf("\n-----RRA-----\n");
 		ft_lstiter(lst, printlist);
 		printf("\n");
@@ -84,7 +87,7 @@ void menu(char *argv, t_list *lst, t_list *lst2)
 		ft_lstiter(lst, printlist);
 		printf("\n");
 		ft_lstiter(lst2, printlist2);
-		rotate(&lst2, ft_lstsize(lst2) - 2);
+		rotate(&lst2, ft_lstsize(lst2) - 2, "rrb");
 		printf("\n-----RRB-----\n");
 		ft_lstiter(lst, printlist);
 		printf("\n");
@@ -96,7 +99,7 @@ void menu(char *argv, t_list *lst, t_list *lst2)
 		ft_lstiter(lst, printlist);
 		printf("\n");
 		ft_lstiter(lst2, printlist2);
-		push(&lst2, &lst);
+		push(&lst2, &lst, "pa");
 		printf("\n-----PA-----\n");
 		ft_lstiter(lst, printlist);
 		printf("\n");
@@ -108,7 +111,7 @@ void menu(char *argv, t_list *lst, t_list *lst2)
 		ft_lstiter(lst, printlist);
 		printf("\n");
 		ft_lstiter(lst2, printlist2);
-		push(&lst, &lst2);
+		push(&lst, &lst2, "pb");
 		printf("\n-----PB-----\n");
 		ft_lstiter(lst, printlist);
 		printf("\n");
