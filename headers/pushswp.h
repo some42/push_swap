@@ -4,6 +4,10 @@
 # include "../libft/libft.h"
 # include <stdlib.h>
 
+/*
+** Struct Declarations
+*/
+
 typedef struct	s_general
 {
 	int argc;
@@ -21,36 +25,35 @@ typedef struct	s_stack
 ** Operator Functions
 */
 
-void	rotate(t_list	**lst, int size);
-void	swap(t_list	**lst);
-void	push(t_list	**src, t_list	**dst);
+void	rotate(t_list	**lst, int size, char *opname);
+void	swap(t_list	**lst, char *opname);
+void	push(t_list	**src, t_list	**dst, char *opname);
 
 /*
 ** Helper Functions
 */
 
-void	parse(char **str);
-void	savetolist(t_list **lst, int argc, char **argv);
-void	freestr(char **str);
 void	init(char **argv, int argc,	t_list **lst);
-int		ifsimbols(char c, char a);
 void	reterror(char *error);
 
 /*
 ** Checker Functions
 */
 
-int	checkdupp(t_list *a);
-int check(t_list *a, int num);
+int		checkdupp(t_list *a);
+int		ifsimbols(char c, char a);
+int		issorted(t_list *stack);
 
 /*
 ** Solver Functions
 */
 
+
+
 /*
 ** TO ERASE
 */
 
-void printlist(void *a);
+void	printlist(void *a);
 
 #endif

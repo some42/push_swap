@@ -4,7 +4,6 @@ SRCS =	functions/helper/init.c \
 		functions/helper/tools.c \
 		functions/helper/checks.c \
 		functions/ordering/operations.c \
-		functions/ordering/order.c \
 		push_swap.c
 
 FLAGS = -Wall -Wextra -Werror

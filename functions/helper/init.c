@@ -6,13 +6,14 @@
 /*   By: agaliste <agaliste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 21:18:20 by agaliste          #+#    #+#             */
-/*   Updated: 2022/02/09 19:34:52 by agaliste         ###   ########.fr       */
+/*   Updated: 2022/02/10 09:42:32 by agaliste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/pushswp.h"
 
-void	parse(char **str)
+static inline void
+	parse(char **str)
 {
 	int	i;
 	int	j;
@@ -37,7 +38,8 @@ void	parse(char **str)
 	}
 }
 
-void	savetolist(t_list **lst, int argc, char **argv)
+static inline void
+	savetolist(t_list **lst, int argc, char **argv)
 {
 	char	**str;
 	int		i;
@@ -56,11 +58,12 @@ void	savetolist(t_list **lst, int argc, char **argv)
 			num->num = ft_atoi(str[j++]);
 			ft_lstadd_back(lst, ft_lstnew(num));
 		}
-		freestr(str);
+		ft_free_matrix(str);
 	}
 }
 
-void	init(char **argv, int argc, t_list **lst)
+void
+	init(char **argv, int argc, t_list **lst)
 {
 	char	**str;
 	int		i;
@@ -72,7 +75,7 @@ void	init(char **argv, int argc, t_list **lst)
 		{
 			str = ft_split((argv[i]), ' ');
 			parse(str);
-			freestr(str);
+			ft_free_matrix(str);
 			i++;
 		}
 	}
@@ -80,5 +83,8 @@ void	init(char **argv, int argc, t_list **lst)
 		reterror("No args");
 	savetolist(lst, argc, argv);
 	if (checkdupp(*lst))
+	{
+		ft_lstclear(&(*lst), free);
 		reterror("There are duplicates");
+	}
 }

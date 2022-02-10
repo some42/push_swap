@@ -6,13 +6,14 @@
 /*   By: agaliste <agaliste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 21:34:48 by agaliste          #+#    #+#             */
-/*   Updated: 2022/02/09 19:34:48 by agaliste         ###   ########.fr       */
+/*   Updated: 2022/02/10 09:50:54 by agaliste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/pushswp.h"
 
-int check(t_list *a, int num)
+static inline int
+	check(t_list *a, int num)
 {
 	while (a->next)
 	{
@@ -23,7 +24,34 @@ int check(t_list *a, int num)
 	return(0);
 }
 
-int	checkdupp(t_list *a)
+int
+	issorted(t_list *stack)
+{
+	while(stack->next)
+	{
+		if(((t_stack*)stack->content)->num < ((t_stack*)stack->next->content)->num)
+			stack = stack -> next;
+		else
+			return 1;
+	}
+	return 0;
+}
+
+int
+	ifsimbols(char c, char a)
+{
+	if (c == '-' || c == '+')
+	{
+		if (a == '-' || a == '+' || !ft_isdigit(a))
+			return (1);
+	}
+	if ((c >= '!' && c <= '*') || c == ',' || (c >= '.' && c <= '/'))
+		return (1);
+	return (0);
+}
+
+int
+	checkdupp(t_list *a)
 {
 	while (a->next)
 	{
