@@ -8,14 +8,6 @@
 ** Struct Declarations
 */
 
-typedef struct	s_general
-{
-	int argc;
-	char **argv;
-	t_list *a;
-	t_list *b;
-}				t_general;
-
 typedef struct	s_stack
 {
 	int	num;
@@ -33,7 +25,7 @@ void	push(t_list	**src, t_list	**dst, char *opname);
 ** Helper Functions
 */
 
-void	init(char **argv, int argc,	t_list **lst);
+void init(char **argv, int argc, t_list **lst, t_list **copy);
 void	reterror(char *error);
 
 /*
@@ -48,7 +40,8 @@ int		issorted(t_list *stack);
 ** Solver Functions
 */
 
-
+void insertionSort(t_list **head_ref);
+void selectionSort(t_list **head);
 
 /*
 ** TO ERASE
