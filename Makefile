@@ -8,6 +8,8 @@ SRCS =	functions/helper/init.c \
 
 FLAGS = -Wall -Wextra -Werror
 
+DEBUG_FLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+
 OBJS = $(SRCS:.c=.o)
 
 LIBFT= ./libft/libft.a
@@ -22,10 +24,13 @@ all: $(NAME)
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME): $(LIBFT) $(OBJS) 
-	$(CC) $(FLAGS) $(SRCS) -Iincludes $(INCL) -o $(NAME) $(LIBFT)
+	$(CC) $(FLAGS) $(SRCS) -o $(NAME) $(LIBFT)
 
 $(LIBFT):
 	@make bonus -C ./libft/
+
+debug: $(NAME)
+	$(CC) $(DEBUG_FLAGS) $(SRCS) -o $(NAME) $(LIBFT)
 
 clean:
 	@make clean -C ./libft/
