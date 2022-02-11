@@ -1,4 +1,4 @@
-name: psuh_swap CI
+name: push_swap CI
 
 on:
   push:
@@ -14,6 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Checkout submodules & add Tester
+      if: always()
       shell: bash
       run: |
         git config --global url."https://github.com/".insteadOf "git@github.com:"
@@ -21,16 +22,23 @@ jobs:
         git submodule sync --recursive
         git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
     - name: Project compilation
+      if: always()
       run: make
     - name: Sort 3 numbers
+      if: always()
       run: bash tester/tester.sh . 3 10
     - name: Sort 5 numbers
+      if: always()
       run: bash tester/tester.sh . 5 10
     - name: Sort 10 numbers
+      if: always()
       run: bash tester/tester.sh . 10 10
     - name: Sort 100 numbers
+      if: always()
       run: bash tester/tester.sh . 100 5
     - name: Sort 500 numbers
+      if: always()
       run: bash tester/tester.sh . 500 5
     - name: Sort 1000 numbers
+      if: always()
       run: bash tester/tester.sh . 1000 5
