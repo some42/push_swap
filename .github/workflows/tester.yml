@@ -20,18 +20,17 @@ jobs:
         auth_header="$(git config --local --get http.https://github.com/.extraheader)"
         git submodule sync --recursive
         git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
-        git clone git@github.com:lmalki-h/push_swap_tester.git
-    - name: Projct compilation
+    - name: Project compilation
       run: make
     - name: Sort 3 numbers
-      run: bash push_swap_tester/tester.sh . 3 25
+      run: bash tester/tester.sh . 3 10
     - name: Sort 5 numbers
-      run: bash push_swap_tester/tester.sh . 5 25
+      run: bash tester/tester.sh . 5 10
     - name: Sort 10 numbers
-      run: bash push_swap_tester/tester.sh . 10 25
+      run: bash tester/tester.sh . 10 10
     - name: Sort 100 numbers
-      run: bash push_swap_tester/tester.sh . 100 25
+      run: bash tester/tester.sh . 100 5
     - name: Sort 500 numbers
-      run: bash push_swap_tester/tester.sh . 500 25
+      run: bash tester/tester.sh . 500 5
     - name: Sort 1000 numbers
-      run: bash push_swap_tester/tester.sh . 1000 25∫
+      run: bash tester/tester.sh . 1000 5
