@@ -6,7 +6,7 @@
 /*   By: agaliste <agaliste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 21:34:48 by agaliste          #+#    #+#             */
-/*   Updated: 2022/02/11 13:18:36 by agaliste         ###   ########.fr       */
+/*   Updated: 2022/02/11 18:06:49 by agaliste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ int
 			< ((t_stack *)stack->next->content)->num)
 			stack = stack -> next;
 		else
-			return (1);
+			return (0);
 	}
-	return (0);
+	return (1);
 }
 
 int

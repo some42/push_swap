@@ -1,0 +1,37 @@
+name: psuh_swap CI
+
+on:
+  push:
+    branches: [ master-list ]
+  pull_request:
+    branches: [ master-list ]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Checkout submodules & add Tester
+      shell: bash
+      run: |
+        git config --global url."https://github.com/".insteadOf "git@github.com:"
+        auth_header="$(git config --local --get http.https://github.com/.extraheader)"
+        git submodule sync --recursive
+        git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
+        git clone git@github.com:lmalki-h/push_swap_tester.git
+    - name: Projct compilation
+      run: make
+    - name: Sort 3 numbers
+      run: bash push_swap_tester/tester.sh . 3 25
+    - name: Sort 5 numbers
+      run: bash push_swap_tester/tester.sh . 5 25
+    - name: Sort 10 numbers
+      run: bash push_swap_tester/tester.sh . 10 25
+    - name: Sort 100 numbers
+      run: bash push_swap_tester/tester.sh . 100 25
+    - name: Sort 500 numbers
+      run: bash push_swap_tester/tester.sh . 500 25
+    - name: Sort 1000 numbers
+      run: bash push_swap_tester/tester.sh . 1000 25∫

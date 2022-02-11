@@ -6,7 +6,7 @@
 /*   By: agaliste <agaliste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 13:19:06 by agaliste          #+#    #+#             */
-/*   Updated: 2022/02/11 13:24:15 by agaliste         ###   ########.fr       */
+/*   Updated: 2022/02/11 19:20:37 by agaliste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ int		issorted(t_list *stack);
 */
 
 void	selection_sort(t_list **head);
+void	three_sort(t_list **stack);
 
 #endif

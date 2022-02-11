@@ -6,17 +6,17 @@
 /*   By: agaliste <agaliste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 15:14:57 by agaliste          #+#    #+#             */
-/*   Updated: 2022/02/11 13:16:27 by agaliste         ###   ########.fr       */
+/*   Updated: 2022/02/11 19:20:23 by agaliste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "headers/pushswp.h"
 
-static inline void
-	printlist(void *a)
-{
-	printf("%i\n", ((t_stack *)a)->num);
-}
+// static inline void
+// 	printlist(void *a)
+// {
+// 	printf("%i\n", ((t_stack *)a)->num);
+// }
 
 //------- CHECK LEAKS --------//
 // static inline void
@@ -33,24 +33,24 @@ int
 	// atexit(leaks);
 	//-------------//
 	
-	t_list *lst;
-	t_list *b;
+	t_list *stack_a;
+	t_list *stack_b;
 	t_list *copy;
 
-	lst = NULL;
-	b = NULL;
+	stack_a = NULL;
+	stack_b = NULL;
 	copy = NULL;
-	init(argv, argc, &lst, &copy);
+	init(argv, argc, &stack_a, &copy);
 	
-	// while(issorted(copy) == 1)
-	selectionSort(&copy);
-	// write(1, "\nSORTED\n", 9);
-	// if(issorted(lst) == 0)
-	// 	write(1, "\nSORTED\n", 9);
-	
-	replacebyorder(&lst, copy);
-	ft_lstiter(lst, printlist);
-	ft_lstclear(&lst, free);
+	if (!issorted(stack_a))
+	{
+		selection_sort(&copy);
+		replacebyorder(&stack_a, copy);
+		if(ft_lstsize(stack_a) <= 3)
+			three_sort(&stack_a);
+	}
+	// ft_lstiter(stack_a, printlist);
+	ft_lstclear(&stack_a, free);
 	ft_lstclear(&copy, free);
 	return (0);
 }

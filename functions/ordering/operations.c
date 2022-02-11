@@ -6,7 +6,7 @@
 /*   By: agaliste <agaliste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 03:15:47 by agaliste          #+#    #+#             */
-/*   Updated: 2022/02/10 09:39:23 by agaliste         ###   ########.fr       */
+/*   Updated: 2022/02/11 19:22:44 by agaliste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void
 	temp = (*lst)->content;
 	(*lst)->content = (*lst)->next->content;
 	(*lst)->next->content = temp;
-	write(1, opname, 3);
+	write(1, opname, ft_strlen(opname));
 }
 
 void
@@ -56,5 +56,5 @@ void
 		else
 			*src = (*src)->next;
 	}
-	write(1, opname, 3);
+	write(1, opname, ft_strlen(opname));
 }
