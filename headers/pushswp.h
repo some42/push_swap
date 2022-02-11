@@ -1,5 +1,17 @@
-#define PUSHSWP_H
-#ifdef PUSHSWP_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pushswp.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: agaliste <agaliste@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/11 13:19:06 by agaliste          #+#    #+#             */
+/*   Updated: 2022/02/11 13:24:15 by agaliste         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef PUSHSWP_H
+# define PUSHSWP_H
 
 # include "../libft/libft.h"
 # include <stdlib.h>
@@ -8,7 +20,7 @@
 ** Struct Declarations
 */
 
-typedef struct	s_stack
+typedef struct s_stack
 {
 	int	num;
 }				t_stack;
@@ -25,8 +37,9 @@ void	push(t_list	**src, t_list	**dst, char *opname);
 ** Helper Functions
 */
 
-void init(char **argv, int argc, t_list **lst, t_list **copy);
+void	init(char **argv, int argc, t_list **lst, t_list **copy);
 void	reterror(char *error);
+void	replacebyorder(t_list **unordered_lst, t_list *ordered_lst);
 
 /*
 ** Checker Functions
@@ -40,13 +53,6 @@ int		issorted(t_list *stack);
 ** Solver Functions
 */
 
-void insertionSort(t_list **head_ref);
-void selectionSort(t_list **head);
-
-/*
-** TO ERASE
-*/
-
-void	printlist(void *a);
+void	selection_sort(t_list **head);
 
 #endif

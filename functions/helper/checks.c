@@ -6,7 +6,7 @@
 /*   By: agaliste <agaliste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 21:34:48 by agaliste          #+#    #+#             */
-/*   Updated: 2022/02/10 09:50:54 by agaliste         ###   ########.fr       */
+/*   Updated: 2022/02/11 13:18:36 by agaliste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,25 @@ static inline int
 {
 	while (a->next)
 	{
-		if (num == ((t_stack*)a->next->content)->num)
-			return(1);
+		if (num == ((t_stack *)a->next->content)->num)
+			return (1);
 		a = a->next;
 	}
-	return(0);
+	return (0);
 }
 
 int
 	issorted(t_list *stack)
 {
-	while(stack->next)
+	while (stack->next)
 	{
-		if(((t_stack*)stack->content)->num < ((t_stack*)stack->next->content)->num)
+		if (((t_stack *)stack->content)->num
+			< ((t_stack *)stack->next->content)->num)
 			stack = stack -> next;
 		else
-			return 1;
+			return (1);
 	}
-	return 0;
+	return (0);
 }
 
 int
@@ -55,7 +56,7 @@ int
 {
 	while (a->next)
 	{
-		if (check(a, ((t_stack*)a->content)->num))
+		if (check(a, ((t_stack *)a->content)->num))
 			return (1);
 		a = a->next;
 	}

@@ -6,7 +6,7 @@
 /*   By: agaliste <agaliste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 21:18:20 by agaliste          #+#    #+#             */
-/*   Updated: 2022/02/10 19:37:28 by agaliste         ###   ########.fr       */
+/*   Updated: 2022/02/11 13:16:50 by agaliste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static inline void
 	int		i;
 	int		j;
 	t_stack	*num;
-	t_stack *numcpy;
+	t_stack	*numcpy;
 
 	i = 1;
 	num = NULL;
