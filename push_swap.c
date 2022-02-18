@@ -6,17 +6,17 @@
 /*   By: agaliste <agaliste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 15:14:57 by agaliste          #+#    #+#             */
-/*   Updated: 2022/02/18 13:05:08 by agaliste         ###   ########.fr       */
+/*   Updated: 2022/02/18 13:09:58 by agaliste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "headers/pushswp.h"
 
-static inline void
-	printlist(void *a)
-{
-	printf("%i\n", ((t_stack *)a)->num);
-}
+// static inline void
+// 	printlist(void *a)
+// {
+// 	printf("%i\n", ((t_stack *)a)->num);
+// }
 
 //------- CHECK LEAKS --------//
 // static inline void
