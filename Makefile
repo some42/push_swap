@@ -5,6 +5,7 @@ SRCS =	functions/helper/init.c \
 		functions/helper/checks.c \
 		functions/ordering/operations.c \
 		functions/ordering/order.c \
+		functions/ordering/fivesort_checks.c \
 		push_swap.c
 
 FLAGS = -Wall -Wextra -Werror

@@ -22,23 +22,27 @@ jobs:
         git submodule sync --recursive
         git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
     - name: Project compilation
+      id: compilation
       if: always()
       run: make
+    - name: Sort 2 numbers
+      if: steps.compilation.outcome == 'success'
+      run: bash tester/tester.sh . 2 10
     - name: Sort 3 numbers
-      if: always()
+      if: steps.compilation.outcome == 'success'
       run: bash tester/tester.sh . 3 10
     - name: Sort 5 numbers
-      if: always()
+      if: steps.compilation.outcome == 'success'
       run: bash tester/tester.sh . 5 10
     - name: Sort 10 numbers
-      if: always()
+      if: steps.compilation.outcome == 'success'
       run: bash tester/tester.sh . 10 10
     - name: Sort 100 numbers
-      if: always()
+      if: steps.compilation.outcome == 'success'
       run: bash tester/tester.sh . 100 5
     - name: Sort 500 numbers
-      if: always()
+      if: steps.compilation.outcome == 'success'
       run: bash tester/tester.sh . 500 5
     - name: Sort 1000 numbers
-      if: always()
+      if: steps.compilation.outcome == 'success'
       run: bash tester/tester.sh . 1000 5

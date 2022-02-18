@@ -6,7 +6,7 @@
 /*   By: agaliste <agaliste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 21:28:04 by agaliste          #+#    #+#             */
-/*   Updated: 2022/02/11 13:15:36 by agaliste         ###   ########.fr       */
+/*   Updated: 2022/02/18 12:58:30 by agaliste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void
 	indx = 0;
 	while (ordered != NULL)
 	{
-		while (*stack != NULL)
+		while ((*stack) != NULL)
 		{
 			if (((t_stack *)(*stack)->content)->num ==
 				((t_stack *)ordered->content)->num)
