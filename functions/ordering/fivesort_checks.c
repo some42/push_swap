@@ -6,7 +6,7 @@
 /*   By: agaliste <agaliste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 11:25:29 by agaliste          #+#    #+#             */
-/*   Updated: 2022/02/18 12:34:07 by agaliste         ###   ########.fr       */
+/*   Updated: 2022/02/18 20:48:32 by agaliste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,56 +36,52 @@ static inline void
 void
 	first_check(t_list **stackA, t_list **stackB)
 {
-	int B;
-	int A[3];
+	int	nb[4];
 
-	B =  ((int)((t_stack*)(*stackB)->content)->num);
-	A[0] = ((int)((t_stack*)(*stackA)->content)->num);
-	A[1] = ((int)((t_stack*)(*stackA)->next->content)->num);
-	A[2] = ((int)((t_stack*)(*stackA)->next->next->content)->num);
-	if (B < A[0]) // 1ra posición
+	nb[3] = ((int)((t_stack *)(*stackB)->content)->num);
+	nb[0] = ((int)((t_stack *)(*stackA)->content)->num);
+	nb[1] = ((int)((t_stack *)(*stackA)->next->content)->num);
+	nb[2] = ((int)((t_stack *)(*stackA)->next->next->content)->num);
+	if (nb[3] < nb[0])
 		push(stackB, stackA, "pa\n");
-	else if (B > A[0] && B < A[1]) // 2da posición
+	else if (nb[3] > nb[0] && nb[3] < nb[1])
 		pa_sa(stackA, stackB);
-	else if (B > A[0] && B > A[1] && B > A[2]) // Ultima posición
+	else if (nb[3] > nb[0] && nb[3] > nb[1] && nb[3] > nb[2])
 		pa_ra(stackA, stackB);
-	else // 3ra posición
+	else
 	{
 		rotate(stackA, ft_lstsize(*stackA) - 2, "rra\n");
 		pa_ra(stackA, stackB);
 		rotate(stackA, ft_lstsize(*stackA), "ra\n");
 	}
 }
-		
 
 void
 	second_check(t_list **stackA, t_list **stackB)
 {
-	int B;
-	int A[4];
+	int	nb[5];
 
-	B =  ((int)((t_stack*)(*stackB)->content)->num);
-	A[0] = ((int)((t_stack*)(*stackA)->content)->num);
-	A[1] = ((int)((t_stack*)(*stackA)->next->content)->num);
-	A[2] = ((int)((t_stack*)(*stackA)->next->next->content)->num);
-	A[3] = ((int)((t_stack*)(*stackA)->next->next->next->content)->num);
-	if (B < A[0]) // 1ra posición
+	nb[4] = ((int)((t_stack *)(*stackB)->content)->num);
+	nb[0] = ((int)((t_stack *)(*stackA)->content)->num);
+	nb[1] = ((int)((t_stack *)(*stackA)->next->content)->num);
+	nb[2] = ((int)((t_stack *)(*stackA)->next->next->content)->num);
+	nb[3] = ((int)((t_stack *)(*stackA)->next->next->next->content)->num);
+	if (nb[4] < nb[0])
 		push(stackB, stackA, "pa\n");
-	else if (B > A[0] && B < A[1]) // 2da posición
+	else if (nb[4] > nb[0] && nb[4] < nb[1])
 		pa_sa(stackA, stackB);
-	else if (B > A[0] && B > A[1] && B < A[2]) // 3ra posición
+	else if (nb[4] > nb[0] && nb[4] > nb[1] && nb[4] < nb[2])
 	{
 		rotate(stackA, ft_lstsize(*stackA), "ra\n");
 		pa_sa(stackA, stackB);
 		rotate(stackA, ft_lstsize(*stackA) - 2, "rra\n");
 	}
-	else if (B > A[0] && B > A[1] && B > A[2] && B < A[3]) // 4ta posición
+	else if (nb[4] > nb[0] && nb[4] > nb[1] && nb[4] > nb[2] && nb[4] < nb[3])
 	{
 		rotate(stackA, ft_lstsize(*stackA) - 2, "rra\n");
 		push(stackB, stackA, "pa\n");
 		ra_ra(stackA);
 	}
-	else // Ultima posición
+	else
 		pa_ra(stackA, stackB);
-		
 }

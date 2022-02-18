@@ -6,7 +6,7 @@
 /*   By: agaliste <agaliste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 13:19:06 by agaliste          #+#    #+#             */
-/*   Updated: 2022/02/18 12:06:44 by agaliste         ###   ########.fr       */
+/*   Updated: 2022/02/18 20:04:12 by agaliste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 
 typedef struct s_stack
 {
+	int status;
 	int	num;
 }				t_stack;
 

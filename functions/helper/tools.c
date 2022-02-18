@@ -6,7 +6,7 @@
 /*   By: agaliste <agaliste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 21:28:04 by agaliste          #+#    #+#             */
-/*   Updated: 2022/02/18 12:58:30 by agaliste         ###   ########.fr       */
+/*   Updated: 2022/02/18 20:11:19 by agaliste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,11 @@ void
 		while ((*stack) != NULL)
 		{
 			if (((t_stack *)(*stack)->content)->num ==
-				((t_stack *)ordered->content)->num)
+				((t_stack *)ordered->content)->num
+				&& ((t_stack *)(*stack)->content)->status != 1)
 			{
 				((t_stack *)(*stack)->content)->num = indx;
+				((t_stack *)(*stack)->content)->status = 1;
 				break ;
 			}
 			(*stack) = (*stack)->next;

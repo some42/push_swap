@@ -6,7 +6,7 @@
 /*   By: agaliste <agaliste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 21:18:20 by agaliste          #+#    #+#             */
-/*   Updated: 2022/02/11 13:16:50 by agaliste         ###   ########.fr       */
+/*   Updated: 2022/02/18 20:04:56 by agaliste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ static inline void
 		{
 			num = malloc(sizeof(t_stack));
 			num->num = ft_atoi(str[j]);
+			num->status = 0;
 			ft_lstadd_back(lst, ft_lstnew(num));
 			numcpy = malloc(sizeof(t_stack));
 			numcpy->num = ft_atoi(str[j++]);
