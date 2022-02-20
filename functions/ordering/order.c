@@ -6,7 +6,7 @@
 /*   By: agaliste <agaliste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 17:42:11 by agaliste          #+#    #+#             */
-/*   Updated: 2022/02/18 20:44:45 by agaliste         ###   ########.fr       */
+/*   Updated: 2022/02/20 21:02:46 by agaliste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,33 @@ void
 	three_sort(stackA);
 	first_check(stackA, stackB);
 	second_check(stackA, stackB);
+}
+
+void
+	big_sort(t_list **stackA, t_list **stackB, int size)
+{
+	int		max_bits;
+	int		iter[2];
+	t_list	*head;
+
+	max_bits = 0;
+	iter[0] = 0;
+	head = *stackA;
+	while (((size - 1) >> max_bits) != 0)
+		++max_bits;
+	while (iter[0] < max_bits)
+	{
+		iter[1] = 0;
+		while (iter[1]++ < size)
+		{
+			if (((((t_stack *)(*stackA)->content)->num >> iter[0]) & 1) == 1)
+				rotate(stackA, ft_lstsize(*stackA), "ra\n");
+			else
+				push(stackA, stackB, "pb\n");
+		}
+		iter[0]++;
+		while (ft_lstsize(*stackB) != 1)
+			push(stackB, stackA, "pa\n");
+		push(stackB, stackA, "pa\n");
+	}
 }

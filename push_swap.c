@@ -6,56 +6,53 @@
 /*   By: agaliste <agaliste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 15:14:57 by agaliste          #+#    #+#             */
-/*   Updated: 2022/02/18 20:08:48 by agaliste         ###   ########.fr       */
+/*   Updated: 2022/02/20 21:05:15 by agaliste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "headers/pushswp.h"
 
 // static inline void
-// 	printlist(void *a)
-// {
-// 	printf("%i\n", ((t_stack *)a)->num);
-// }
-
-//------- CHECK LEAKS --------//
-// static inline void
 //  	leaks()
 //  {
 //  	system("leaks push_swap");
 //  }
-//---------------------------//
+
+static inline void
+	clearall(t_list **stackA, t_list **stackB, t_list **copy)
+{
+	ft_lstclear(stackA, free);
+	ft_lstclear(stackB, free);
+	ft_lstclear(copy, free);
+}
 
 int
 	main(int argc, char **argv)
 {
-	//- CHECK LEAKS -//
-	// atexit(leaks);
-	//-------------//
-	
-	t_list *stack_a;
-	t_list *stack_b;
-	t_list *copy;
-	int		stkAsize;
+	t_list	*stack_a;
+	t_list	*stack_b;
+	t_list	*copy;
 
 	stack_a = NULL;
 	stack_b = NULL;
 	copy = NULL;
 	init(argv, argc, &stack_a, &copy);
-	stkAsize = ft_lstsize(stack_a);
 	if (!issorted(stack_a))
 	{
-		selection_sort(&copy);
-		replacebyorder(&stack_a, copy);
-		// ft_lstiter(stack_a, printlist);
-		if(stkAsize < 3)
-			rotate(&stack_a, stkAsize, "ra\n");
-		else if(stkAsize <= 3)
+		if (ft_lstsize(stack_a) < 3)
+			rotate(&stack_a, ft_lstsize(stack_a), "ra\n");
+		else if (ft_lstsize(stack_a) <= 3)
 			three_sort(&stack_a);
-		else if(stkAsize <= 5)
+		else if (ft_lstsize(stack_a) <= 5)
 			five_sort(&stack_a, &stack_b);
+		else
+		{
+			selection_sort(&copy);
+			replacebyorder(&stack_a, copy);
+			big_sort(&stack_a, &stack_b, ft_lstsize(stack_a));
+		}
 	}
-	ft_lstclear(&stack_a, free);
-	ft_lstclear(&copy, free);
+	clearall(&stack_a, &stack_b, &copy);
+	// atexit(leaks); TODO: Fix Leaks
 	return (0);
 }
