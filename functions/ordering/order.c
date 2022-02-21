@@ -85,11 +85,9 @@ void
 {
 	int		max_bits;
 	int		iter[2];
-	t_list	*head;
 
 	max_bits = 0;
 	iter[0] = 0;
-	head = *stackA;
 	while (((size - 1) >> max_bits) != 0)
 		++max_bits;
 	while (iter[0] < max_bits)
