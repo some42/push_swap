@@ -1,11 +1,11 @@
 NAME = push_swap
 
-SRCS =	functions/helper/init.c \
+SRCS =	functions/parse/init.c \
 		functions/helper/tools.c \
-		functions/helper/checks.c \
-		functions/ordering/operations.c \
-		functions/ordering/order.c \
-		functions/ordering/fivesort_checks.c \
+		functions/helper/parse_checks.c \
+		functions/helper/fivesort_checks.c \
+		functions/sorting/operations.c \
+		functions/sorting/order.c \
 		push_swap.c
 
 FLAGS = -Wall -Wextra -Werror
@@ -30,6 +30,9 @@ $(NAME): $(LIBFT) $(OBJS)
 
 $(LIBFT):
 	@make bonus -C ./libft/
+
+norme:
+	@norminette $(SRCS)
 
 debug: $(NAME)
 	$(CC) $(DEBUG_FLAGS) $(SRCS) -o $(NAME) $(LIBFT)

@@ -51,8 +51,14 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-# Extra
+# vscode Files
 .vscode/
+
+# Junk
 *.DS_Store
 
+# Binary Files
 push_swap
+
+# Logs
+*.log

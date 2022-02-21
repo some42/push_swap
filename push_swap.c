@@ -6,17 +6,11 @@
 /*   By: agaliste <agaliste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 15:14:57 by agaliste          #+#    #+#             */
-/*   Updated: 2022/02/20 21:05:15 by agaliste         ###   ########.fr       */
+/*   Updated: 2022/02/21 10:06:28 by agaliste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "headers/pushswp.h"
-
-// static inline void
-//  	leaks()
-//  {
-//  	system("leaks push_swap");
-//  }
 
 static inline void
 	clearall(t_list **stackA, t_list **stackB, t_list **copy)
@@ -53,6 +47,5 @@ int
 		}
 	}
 	clearall(&stack_a, &stack_b, &copy);
-	// atexit(leaks); TODO: Fix Leaks
 	return (0);
 }
