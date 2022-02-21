@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agaliste <agaliste@student.42.fr>          +#+  +:+       +#+        */
+/*   By: madorna- <madorna-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 03:15:47 by agaliste          #+#    #+#             */
-/*   Updated: 2022/02/11 19:22:44 by agaliste         ###   ########.fr       */
+/*   Updated: 2022/02/21 09:52:35 by madorna-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,20 @@ void
 void
 	push(t_list	**src, t_list **dst, char *opname)
 {
+	t_list	*head;
+
+	head = *src;
 	if ((*src)->content != NULL)
 	{
 		ft_lstadd_front(dst, ft_lstnew((int *)(*src)->content));
 		if (ft_lstsize((*src)) == 1)
 			(*src)->content = NULL;
 		else
+		{
 			*src = (*src)->next;
+			free(head);
+			head = NULL;
+		}
 	}
 	write(1, opname, ft_strlen(opname));
 }
