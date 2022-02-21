@@ -8,6 +8,8 @@ SRCS =	functions/parse/init.c \
 		functions/sorting/order.c \
 		push_swap.c
 
+INCLUDES =	headers/pushswp.h
+
 FLAGS = -Wall -Wextra -Werror
 
 DEBUG_FLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
@@ -32,7 +34,7 @@ $(LIBFT):
 	@make bonus -C ./libft/
 
 norme:
-	@norminette $(SRCS)
+	@norminette $(SRCS) $(INCLUDES)
 
 debug: $(NAME)
 	$(CC) $(DEBUG_FLAGS) $(SRCS) -o $(NAME) $(LIBFT)
