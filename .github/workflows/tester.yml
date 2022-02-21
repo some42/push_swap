@@ -2,9 +2,9 @@ name: push_swap CI
 
 on:
   push:
-    branches: [ master-list ]
+    branches: [ master ]
   pull_request:
-    branches: [ master-list ]
+    branches: [ master ]
 
 jobs:
   build:
