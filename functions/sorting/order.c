@@ -6,7 +6,7 @@
 /*   By: agaliste <agaliste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 17:42:11 by agaliste          #+#    #+#             */
-/*   Updated: 2022/02/20 21:02:46 by agaliste         ###   ########.fr       */
+/*   Updated: 2022/02/21 11:08:30 by agaliste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,19 +83,15 @@ void
 void
 	big_sort(t_list **stackA, t_list **stackB, int size)
 {
-	int		max_bits;
 	int		iter[2];
 
-	max_bits = 0;
 	iter[0] = 0;
-	while (((size - 1) >> max_bits) != 0)
-		++max_bits;
-	while (iter[0] < max_bits)
+	while (!issorted(*stackA))
 	{
 		iter[1] = 0;
 		while (iter[1]++ < size)
 		{
-			if (((((t_stack *)(*stackA)->content)->num >> iter[0]) & 1) == 1)
+			if (((t_stack *)(*stackA)->content)->num >> iter[0] & 1)
 				rotate(stackA, ft_lstsize(*stackA), "ra\n");
 			else
 				push(stackA, stackB, "pb\n");
