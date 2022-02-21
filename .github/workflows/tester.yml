@@ -43,6 +43,3 @@ jobs:
     - name: Sort 500 numbers
       if: steps.compilation.outcome == 'success'
       run: bash tester/tester.sh . 500 5
-    - name: Sort 1000 numbers
-      if: steps.compilation.outcome == 'success'
-      run: bash tester/tester.sh . 1000 5
