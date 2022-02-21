@@ -6,7 +6,7 @@
 /*   By: agaliste <agaliste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 21:18:20 by agaliste          #+#    #+#             */
-/*   Updated: 2022/02/18 20:04:56 by agaliste         ###   ########.fr       */
+/*   Updated: 2022/02/21 15:40:35 by agaliste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void
 	int		i;
 
 	i = 1;
-	if (argv[i] && argc > 1)
+	if (argc > 1 && argv[i])
 	{
 		while (argv[i])
 		{

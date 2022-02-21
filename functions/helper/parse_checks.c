@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checks.c                                           :+:      :+:    :+:   */
+/*   parse_checks.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agaliste <agaliste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 21:34:48 by agaliste          #+#    #+#             */
-/*   Updated: 2022/02/18 11:25:21 by agaliste         ###   ########.fr       */
+/*   Updated: 2022/02/21 15:36:31 by agaliste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static inline int
 int
 	issorted(t_list *stack)
 {
-	while (stack->next)
+	while (stack && stack->next)
 	{
 		if (((t_stack *)stack->content)->num
 			< ((t_stack *)stack->next->content)->num)
@@ -54,7 +54,7 @@ int
 int
 	checkdupp(t_list *a)
 {
-	while (a->next)
+	while (a && a->next)
 	{
 		if (check(a, ((t_stack *)a->content)->num))
 			return (1);
