@@ -6,7 +6,7 @@
 /*   By: agaliste <agaliste@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 21:18:20 by agaliste          #+#    #+#             */
-/*   Updated: 2022/02/21 15:40:35 by agaliste         ###   ########.fr       */
+/*   Updated: 2022/02/21 15:51:03 by agaliste         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void
 		}
 	}
 	else
-		reterror("No args");
+		return ;
 	savetolist(lst, copy, argc, argv);
 	if (checkdupp(*lst))
 	{
