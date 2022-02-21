@@ -8,7 +8,7 @@ SRCS =	functions/helper/init.c \
 		functions/ordering/fivesort_checks.c \
 		push_swap.c
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall #-Wextra -Werror
 
 DEBUG_FLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 
